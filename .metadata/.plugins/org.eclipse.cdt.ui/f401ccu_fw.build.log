@@ -1,10 +1,10 @@
-11:56:54 **** Incremental Build of configuration Debug for project f401ccu_fw ****
+15:11:21 **** Incremental Build of configuration Debug for project f401ccu_fw ****
 make -j16 all 
 arm-none-eabi-size  f401ccu_fw.elf 
    text	   data	    bss	    dec	    hex	filename
-   6204	     12	   1572	   7788	   1e6c	f401ccu_fw.elf
+   6204	     12	   1580	   7796	   1e74	f401ccu_fw.elf
 Finished building: default.size.stdout
  
 
-11:56:55 Build Finished. 0 errors, 0 warnings. (took 254ms)
+15:11:21 Build Finished. 0 errors, 0 warnings. (took 274ms)
 
