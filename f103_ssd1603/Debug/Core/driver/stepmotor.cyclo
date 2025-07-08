@@ -1,0 +1,2 @@
+../Core/driver/stepmotor.c:24:6:set_step	1
+../Core/driver/stepmotor.c:31:6:step_motor_forward	3

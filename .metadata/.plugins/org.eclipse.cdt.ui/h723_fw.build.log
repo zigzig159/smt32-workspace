@@ -1,0 +1,10 @@
+16:28:23 **** Incremental Build of configuration Debug for project h723_fw ****
+make -j16 all 
+arm-none-eabi-size  h723_fw.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8040	     24	   1576	   9640	   25a8	h723_fw.elf
+Finished building: default.size.stdout
+ 
+
+16:28:23 Build Finished. 0 errors, 0 warnings. (took 254ms)
+

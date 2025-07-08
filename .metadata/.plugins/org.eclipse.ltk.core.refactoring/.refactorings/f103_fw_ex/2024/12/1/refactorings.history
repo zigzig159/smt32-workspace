@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;f103_fw_ex/src/lib/f103_fw_ex&apos; to &apos;cube_f103&apos;" description="Rename resource &apos;f103_fw_ex&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/lib/f103_fw_ex" name="cube_f103" stamp="1735534070236" updateReferences="true"/>
+</session>

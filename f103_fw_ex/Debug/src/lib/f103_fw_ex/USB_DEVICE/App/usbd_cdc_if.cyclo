@@ -1,0 +1,9 @@
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:34:10:cdcAvailable	1
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:43:9:cdcRead	2
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:58:6:cdcDataIn	2
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:71:10:cdcWrite	4
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:220:15:CDC_Init_FS	1
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:234:15:CDC_DeInit_FS	1
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:248:15:CDC_Control_FS	1
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:329:15:CDC_Receive_FS	2
+../src/lib/f103_fw_ex/USB_DEVICE/App/usbd_cdc_if.c:358:9:CDC_Transmit_FS	2

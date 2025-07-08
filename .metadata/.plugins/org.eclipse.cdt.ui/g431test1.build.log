@@ -1,0 +1,17 @@
+15:53:52 **** Incremental Build of configuration Debug for project g431test1 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -IC:/Users/RND1/STM32Cube/Repository/STM32Cube_FW_G4_V1.6.1/Drivers/STM32G4xx_HAL_Driver/Inc -IC:/Users/RND1/STM32Cube/Repository/STM32Cube_FW_G4_V1.6.1/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -IC:/Users/RND1/STM32Cube/Repository/STM32Cube_FW_G4_V1.6.1/Drivers/CMSIS/Device/ST/STM32G4xx/Include -IC:/Users/RND1/STM32Cube/Repository/STM32Cube_FW_G4_V1.6.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "g431test1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\g431test1\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="g431test1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: g431test1.elf
+ 
+arm-none-eabi-size  g431test1.elf 
+arm-none-eabi-objdump -h -S g431test1.elf  > "g431test1.list"
+   text	   data	    bss	    dec	    hex	filename
+   5740	     12	   1572	   7324	   1c9c	g431test1.elf
+Finished building: default.size.stdout
+ 
+Finished building: g431test1.list
+ 
+
+15:53:52 Build Finished. 0 errors, 0 warnings. (took 551ms)
+
