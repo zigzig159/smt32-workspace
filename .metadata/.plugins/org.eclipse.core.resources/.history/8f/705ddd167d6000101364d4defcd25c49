@@ -1,0 +1,105 @@
+/*
+ * button.c
+ *
+ *  Created on: Jul 8, 2025
+ *      Author: RND1
+ */
+
+#include "button.h"
+#include "main.h"
+#include "ssd1306.h"
+
+
+
+int count = 0;
+int num = 0;
+uint32_t pre_time;
+
+void swchose()
+{
+  if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)== GPIO_PIN_RESET )
+      {
+    HAL_Delay(200);
+    num = 1;
+      }
+  if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1)== GPIO_PIN_RESET )
+        {
+      HAL_Delay(200);
+      num = 2;
+        }
+  if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2)== GPIO_PIN_RESET )
+        {
+      HAL_Delay(200);
+      num = 3;
+        }
+
+}
+
+void swdisplay(){
+  switch (num)
+  {
+    case 0 :
+            ssd1306_set_cursor(5, 40);
+            ssd1306_write_string(font11x18, "NON");
+            ssd1306_update_screen();
+            break;
+    case 1 :
+            ssd1306_set_cursor(5, 40);
+            ssd1306_write_string(font11x18, "one");
+            ssd1306_update_screen();
+            break;
+    case 2 :
+            ssd1306_set_cursor(5, 40);
+            ssd1306_write_string(font11x18, "two");
+            ssd1306_update_screen();
+            break;
+    case 3 :
+            ssd1306_set_cursor(5, 40);
+            ssd1306_write_string(font11x18, "three");
+            ssd1306_update_screen();
+            break;
+  }
+}
+
+void swcount(){
+switch (count)
+       {
+      case 0 :  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+
+      case 1 :
+               if (millis()- pre_time >= 200)
+               {
+                 pre_time = millis();
+                HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+               }
+                  break;
+       case 2 :
+         if (millis()- pre_time >= 500)
+         {
+           pre_time = millis();
+          HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+         }
+                  break;
+       case 3 :
+         if (millis()- pre_time >= 1000)
+         {
+           pre_time = millis();
+          HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+         }
+                  break;
+       case 4 :  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+             count = 0;
+
+       }
+}
+
+void button_countup(){
+
+if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)== GPIO_PIN_RESET )
+    {
+  HAL_Delay(200);
+  count++;
+
+    }
+
+}

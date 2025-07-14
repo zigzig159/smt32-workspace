@@ -1,0 +1,4 @@
+../Core/driver/button.c:18:6:swchose	8	static
+../Core/driver/button.c:38:6:swdisplay	8	static
+../Core/driver/button.c:72:6:swcount	8	static
+../Core/driver/button.c:104:6:button_countup	8	static

@@ -19,7 +19,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "usart.h"
 #include "gpio.h"
+#include "button.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -89,6 +91,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2C1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   ssd1306_init();
 
@@ -103,7 +106,7 @@ int main(void)
   ssd1306_write_string(font6x8, "build BY JANG");
 
   ssd1306_set_cursor(5, 40);
-  ssd1306_write_string(font11x18, "time : ");
+  ssd1306_write_string(font11x18, "            ");
   ssd1306_update_screen();
   /* USER CODE END 2 */
 
@@ -112,8 +115,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    step_motor_forward(256);
-    HAL_Delay(1000);
+    swchose();
+    swdisplay();
+    HAL_Delay(50);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -159,7 +163,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+uint32_t millis(void)
+{
+  return HAL_GetTick();
+}
 /* USER CODE END 4 */
 
 /**

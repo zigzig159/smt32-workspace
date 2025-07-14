@@ -9,6 +9,7 @@
 
 #include "ssd1306.h"
 #include <string.h> // memcpy
+#include "ssd1306_font.h"
 
 /* SSD1306 Variable */
 static uint8_t ssd1306_buffer[SSD1306_BUFFER_SIZE];
