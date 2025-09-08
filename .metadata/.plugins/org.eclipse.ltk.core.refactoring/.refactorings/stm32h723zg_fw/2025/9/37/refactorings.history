@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;stm32h723zg_fw.launch&apos; to &apos;stm32h723zg_fw&apos;" description="Move &apos;stm32h723zg_fw.launch&apos; to &apos;stm32h723zg_fw&apos;" destination="/stm32h723zg_fw" element1="/f103_fw_ex/stm32h723zg_fw.launch" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1757304809933" updateReferences="true"/>
+</session>

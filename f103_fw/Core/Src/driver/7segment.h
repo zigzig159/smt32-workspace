@@ -1,0 +1,19 @@
+/*
+ * 7segment.h
+ *
+ *  Created on: Sep 8, 2025
+ *      Author: RND1
+ */
+
+#ifndef SRC_DRIVER_7SEGMENT_H_
+#define SRC_DRIVER_7SEGMENT_H_
+
+#include "stm32f1xx_hal.h"
+
+void segment_Init(void);
+void pickDigit(int x);
+void pickNumber(int x);
+void seg_display(int a);
+
+
+#endif /* SRC_DRIVER_7SEGMENT_H_ */

@@ -1,0 +1,3 @@
+../Core/driver/button.c:16:6:swchose	4
+../Core/driver/button.c:71:6:swcount	5
+../Core/driver/button.c:96:6:button_countup	2

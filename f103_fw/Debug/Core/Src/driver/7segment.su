@@ -1,0 +1,4 @@
+../Core/Src/driver/7segment.c:11:6:segment_Init	8	static
+../Core/Src/driver/7segment.c:29:6:pickDigit	16	static
+../Core/Src/driver/7segment.c:62:6:pickNumber	16	static
+../Core/Src/driver/7segment.c:159:6:seg_display	64	static

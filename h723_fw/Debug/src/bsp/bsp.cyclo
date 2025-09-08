@@ -1,6 +1,0 @@
-../src/bsp/bsp.c:14:6:bspInit	1
-../src/bsp/bsp.c:63:6:delay	1
-../src/bsp/bsp.c:68:10:millis	1
-../src/bsp/bsp.c:74:6:SystemClock_Config	4
-../src/bsp/bsp.c:129:6:MPU_Config	1
-../src/bsp/bsp.c:160:6:Error_Handler	1
