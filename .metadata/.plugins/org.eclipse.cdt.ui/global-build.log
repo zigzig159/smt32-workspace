@@ -1,25 +1,21 @@
-15:38:12 **** Incremental Build of configuration Debug for project f103_fw ****
+11:17:35 **** Incremental Build of configuration Debug for project stm32g431_fw ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_fw/Core/Src/driver" -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'millis':
-../Core/Src/main.c:50:1: warning: control reaches end of non-void function [-Wreturn-type]
-   50 | }
-      | ^
-arm-none-eabi-gcc -o "f103_fw.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f103_fw\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f103_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: f103_fw.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stm32g431_fw.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32g431_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32g431_fw.elf
  
-arm-none-eabi-size  f103_fw.elf 
-arm-none-eabi-objdump -h -S f103_fw.elf  > "f103_fw.list"
+arm-none-eabi-size  stm32g431_fw.elf 
+arm-none-eabi-objdump -h -S stm32g431_fw.elf  > "stm32g431_fw.list"
    text	   data	    bss	    dec	    hex	filename
-   6308	     12	   1572	   7892	   1ed4	f103_fw.elf
+   9444	     12	   1676	  11132	   2b7c	stm32g431_fw.elf
 Finished building: default.size.stdout
  
-Finished building: f103_fw.list
+Finished building: stm32g431_fw.list
  
-15:38:43 **** Incremental Build of configuration Debug for project f103_fw ****
+11:17:39 **** Incremental Build of configuration Debug for project stm32g431_fw ****
 make -j16 all 
-arm-none-eabi-size  f103_fw.elf 
+arm-none-eabi-size  stm32g431_fw.elf 
    text	   data	    bss	    dec	    hex	filename
-   6308	     12	   1572	   7892	   1ed4	f103_fw.elf
+   9444	     12	   1676	  11132	   2b7c	stm32g431_fw.elf
 Finished building: default.size.stdout
  

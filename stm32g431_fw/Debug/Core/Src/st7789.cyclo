@@ -1,0 +1,16 @@
+../Core/Src/st7789.c:12:20:CS_Select	1
+../Core/Src/st7789.c:13:20:CS_Unselect	1
+../Core/Src/st7789.c:14:20:DC_Command	1
+../Core/Src/st7789.c:15:20:DC_Data	1
+../Core/Src/st7789.c:17:13:ST7789_Reset	1
+../Core/Src/st7789.c:24:13:WriteCommand	1
+../Core/Src/st7789.c:31:13:WriteData	1
+../Core/Src/st7789.c:38:13:WriteData16	1
+../Core/Src/st7789.c:43:13:SetAddrWindow	1
+../Core/Src/st7789.c:59:6:ST7789_SetRotation	5
+../Core/Src/st7789.c:72:6:ST7789_Init	1
+../Core/Src/st7789.c:105:6:ST7789_DrawPixel	3
+../Core/Src/st7789.c:111:6:ST7789_FillRect	7
+../Core/Src/st7789.c:133:6:ST7789_DrawRect	3
+../Core/Src/st7789.c:143:6:ST7789_FillScreen	1
+../Core/Src/st7789.c:147:6:ST7789_DrawImage	7

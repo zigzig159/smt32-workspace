@@ -1,0 +1,63 @@
+/*
+ * st7789.h
+ *
+ *  Created on: Sep 9, 2025
+ *      Author: RND1
+ */
+
+#ifndef SRC_ST7789_H_
+#define SRC_ST7789_H_
+
+#include "main.h"
+#include <stdint.h>
+#include <string.h>
+
+// ===== 사용자 환경에 맞게 수정 =====
+#define ST7789_SPI_HANDLE      hspi1
+
+#define ST7789_DC_GPIO_Port    GPIOA
+#define ST7789_DC_Pin          GPIO_PIN_9
+
+#define ST7789_RST_GPIO_Port   GPIOB
+#define ST7789_RST_Pin         GPIO_PIN_1
+
+#define ST7789_CS_GPIO_Port    GPIOA
+#define ST7789_CS_Pin          GPIO_PIN_10
+// =================================
+
+// 해상도
+#define ST7789_WIDTH   170
+#define ST7789_HEIGHT  320
+
+// (패널에 따라 오프셋이 있을 수 있음. 검은 테두리 보이면 조정)
+// 일반적인 240x240 모듈은 0,0
+#define ST7789_X_OFFSET  30
+#define ST7789_Y_OFFSET  0
+
+// 색상(RGB565) 헬퍼
+#define RGB565(r,g,b)   (uint16_t)((((r)&0x1F)<<11) | (((g)&0x3F)<<5) | ((b)&0x1F))
+#define COLOR_BLACK     0x0000
+#define COLOR_WHITE     0xFFFF
+#define COLOR_RED       0xF800
+#define COLOR_GREEN     0x07E0
+#define COLOR_BLUE      0x001F
+#define COLOR_YELLOW    0xFFE0
+#define COLOR_CYAN      0x07FF
+#define COLOR_MAGENTA   0xF81F
+#define COLOR_GRAY      0x8410
+
+extern SPI_HandleTypeDef ST7789_SPI_HANDLE;
+
+// API
+void ST7789_Init(void);
+void ST7789_FillScreen(uint16_t color);
+void ST7789_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
+void ST7789_DrawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
+void ST7789_FillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
+void ST7789_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t *data_rgb565);
+void ST7789_SetRotation(uint8_t rot); // 0~3
+
+
+
+
+#endif /* SRC_ST7789_H_ */

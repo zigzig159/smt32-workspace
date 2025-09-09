@@ -1,4 +1,4 @@
-17:00:06 **** Incremental Build of configuration Debug for project stm32h723zg_fw ****
+11:14:40 **** Build of configuration Debug for project stm32h723zg_fw ****
 make -j16 all 
 arm-none-eabi-size  stm32h723zg_fw.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  stm32h723zg_fw.elf
 Finished building: default.size.stdout
  
 
-17:00:06 Build Finished. 0 errors, 0 warnings. (took 254ms)
+11:14:40 Build Finished. 0 errors, 0 warnings. (took 307ms)
 

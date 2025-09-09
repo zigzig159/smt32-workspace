@@ -1009,8 +1009,8 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
  800084c:	f000 f8f8 	bl	8000a40 <HAL_Init>
-  /* USER CODE BEGIN Init */
 
+ /* USER CODE BEGIN Init */
   /* USER CODE END Init */
 
   /* Configure the system clock */
