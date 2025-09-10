@@ -6,22 +6,22 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="seg_g_GPIO_Port"/>
+		<item key="selection" value="Temp_Buffer_text"/>
 		<list key="findhistory">
+			<item value="Temp_Buffer_text"/>
+			<item value="hspi5"/>
+			<item value="BLACK"/>
+			<item value="CS_Unselect"/>
+			<item value="invon"/>
 			<item value="seg_g"/>
 			<item value="seg_f"/>
 			<item value="seg_e"/>
 			<item value="seg_d"/>
 			<item value="seg_c"/>
-			<item value="seg_b"/>
-			<item value="seg_a"/>
-			<item value="HIGH"/>
-			<item value="LOW"/>
-			<item value="LOw"/>
-			<item value="digitalWrite"/>
-			<item value="d"/>
 		</list>
 		<list key="replacehistory">
+			<item value="ch"/>
+			<item value="hspi1"/>
 			<item value="seg_g_GPIO_Port"/>
 			<item value="seg_e_GPIO_Port"/>
 			<item value="seg_a_GPIO_Port"/>

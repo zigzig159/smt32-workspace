@@ -15,6 +15,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ledex\ Debug/activeLaunchMode=r
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ledex\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32g431_fw\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32g431_fw\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32g431_fw/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32h723zg_fw/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32h723zg_fw/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:ledex\ Debug/activeLaunchMode=debug

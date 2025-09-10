@@ -23,7 +23,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "st7789.h"
+#include "ili9341_STM32_Driver.h"
+
+#include "ili9341_GFX.h"
+
+#include "snow_tiger.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,11 +95,11 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_SET);
+ /* HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_SET);
 
    ST7789_Init();
 
-   // ?���?? ?��?��?��
+   // ?���???? ?��?��?��
    ST7789_FillScreen(COLOR_BLACK);
    HAL_Delay(500);
 
@@ -108,19 +114,35 @@ int main(void)
    ST7789_FillScreen(COLOR_BLACK);
    ST7789_FillRect(10, 10, 100, 60, COLOR_YELLOW);
    ST7789_DrawRect(8, 8, 104, 64, COLOR_WHITE);
-   ST7789_DrawPixel(120, 120, COLOR_CYAN);
+   ST7789_DrawPixel(120, 120, COLOR_CYAN);*/
+   ILI9341_Init();
   /* USER CODE END 2 */
-
+char ch[100];
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-    static uint16_t x=0;
-       ST7789_FillRect(x, 180, 20, 20, COLOR_MAGENTA);
-       HAL_Delay(20);
-       ST7789_FillRect(x, 180, 20, 20, COLOR_BLACK);
-       x = (x + 2) % (ST7789_WIDTH - 20);
+    ILI9341_Fill_Screen(WHITE);
+        ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+        ILI9341_Draw_Text("Counting single segment", 10, 10, BLACK, 1, WHITE);
+        ILI9341_Draw_Text("ILI9341 TFT TEST", 10, 30, RED, 2, WHITE);
+        ILI9341_Draw_Text("It is first Test!!", 10, 50, BLUE, 2, WHITE);
+        ILI9341_Draw_Text("It is second Test!!", 10, 70, ORANGE, 2, WHITE);
+        ILI9341_Draw_Text("It is three Test!!", 10, 90, PINK, 2, WHITE);
+        ILI9341_Draw_Text("It is four Test!!", 10, 110, NAVY, 2, WHITE);
+        HAL_Delay(10000);
+        ILI9341_Fill_Screen(WHITE);
+
+        for(uint16_t i = 0; i <= 100; i++)
+        {
+        sprintf(ch, "Counting: %d", i);
+        ILI9341_Draw_Text(ch, 10, 10, BLACK, 3, WHITE);
+        HAL_Delay(100);
+        }
+
+        HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
