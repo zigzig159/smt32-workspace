@@ -221,3 +221,21 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-10 09:42:22.914
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-09-12 14:50:53.666 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-12 14:51:19.323
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-12 14:51:19.331
+!MESSAGE Log4j2 initialized with config file C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-12 14:51:31.151
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-12 14:56:41.382
+!MESSAGE Indexed 'stm32g431_fw' (30 sources, 133 headers) in 2.81 sec: 11,835 declarations; 45,583 references; 4 unresolved inclusions; 1,071 syntax errors; 171 unresolved names (0.3%)

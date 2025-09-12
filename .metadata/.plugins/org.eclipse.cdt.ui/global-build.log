@@ -1,21 +1,21 @@
-09:59:36 **** Incremental Build of configuration Debug for project stm32g431_fw ****
+15:50:42 **** Incremental Build of configuration Debug for project stm32g431_fw ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/ili9341" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/st7789" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/ssd1306" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/ili9341" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/st7789" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "stm32g431_fw.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32g431_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32g431_fw.elf
  
 arm-none-eabi-size  stm32g431_fw.elf 
 arm-none-eabi-objdump -h -S stm32g431_fw.elf  > "stm32g431_fw.list"
    text	   data	    bss	    dec	    hex	filename
-  14032	     96	   2000	  16128	   3f00	stm32g431_fw.elf
+  24064	    112	   3144	  27320	   6ab8	stm32g431_fw.elf
 Finished building: default.size.stdout
  
 Finished building: stm32g431_fw.list
  
-10:00:03 **** Incremental Build of configuration Debug for project stm32g431_fw ****
+15:50:45 **** Incremental Build of configuration Debug for project stm32g431_fw ****
 make -j16 all 
 arm-none-eabi-size  stm32g431_fw.elf 
    text	   data	    bss	    dec	    hex	filename
-  14032	     96	   2000	  16128	   3f00	stm32g431_fw.elf
+  24064	    112	   3144	  27320	   6ab8	stm32g431_fw.elf
 Finished building: default.size.stdout
  

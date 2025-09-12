@@ -113,10 +113,10 @@ HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1);
 /* Send command (char) to LCD */
 void ILI9341_Write_Command(uint8_t Command)
 {
-HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_RESET);
-HAL_GPIO_WritePin(LCD_DC_PORT, LCD_DC_PIN, GPIO_PIN_RESET);
-ILI9341_SPI_Send(Command);
-HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LCD_DC_PORT, LCD_DC_PIN, GPIO_PIN_RESET);
+  ILI9341_SPI_Send(Command);
+  HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_SET);
 }
 
 /* Send Data (char) to LCD */
