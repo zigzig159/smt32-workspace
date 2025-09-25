@@ -2724,18 +2724,18 @@ LOAD C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x000159b5      0x1ef ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_macro   0x00015ba4      0x196 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
 
-.debug_line     0x00000000     0x58ba
- .debug_line    0x00000000      0x802 ./Core/Src/driver/7segment.o
- .debug_line    0x00000802      0x6e7 ./Core/Src/gpio.o
- .debug_line    0x00000ee9      0x7ba ./Core/Src/main.o
- .debug_line    0x000016a3      0x6bd ./Core/Src/stm32f1xx_hal_msp.o
- .debug_line    0x00001d60      0x77e ./Core/Src/stm32f1xx_it.o
- .debug_line    0x000024de      0x73a ./Core/Src/system_stm32f1xx.o
- .debug_line    0x00002c18       0x78 ./Core/Startup/startup_stm32f103c8tx.o
- .debug_line    0x00002c90      0x967 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_line    0x000035f7      0xb53 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_line    0x0000414a      0xa00 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_line    0x00004b4a      0xd70 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+.debug_line     0x00000000     0x58bb
+ .debug_line    0x00000000      0x803 ./Core/Src/driver/7segment.o
+ .debug_line    0x00000803      0x6e7 ./Core/Src/gpio.o
+ .debug_line    0x00000eea      0x7ba ./Core/Src/main.o
+ .debug_line    0x000016a4      0x6bd ./Core/Src/stm32f1xx_hal_msp.o
+ .debug_line    0x00001d61      0x77e ./Core/Src/stm32f1xx_it.o
+ .debug_line    0x000024df      0x73a ./Core/Src/system_stm32f1xx.o
+ .debug_line    0x00002c19       0x78 ./Core/Startup/startup_stm32f103c8tx.o
+ .debug_line    0x00002c91      0x967 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_line    0x000035f8      0xb53 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_line    0x0000414b      0xa00 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_line    0x00004b4b      0xd70 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
 
 .debug_str      0x00000000    0x7bf6f
  .debug_str     0x00000000    0x7ad1f ./Core/Src/driver/7segment.o

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "i2c.h"
 #include "spi.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -63,6 +64,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 char time[20];
 uint32_t count = 0;
+uint8_t buf[100] = "RXTX";
 /* USER CODE END 0 */
 
 /**
@@ -96,6 +98,7 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_I2C2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   ssd1306_init();
@@ -117,7 +120,7 @@ int main(void)
 
    ST7789_Init();
 
-   // ?���????? ?��?��?��
+   // ?���?????? ?��?��?��
    ST7789_FillScreen(COLOR_BLACK);
    HAL_Delay(500);
 
@@ -143,33 +146,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    sprintf(time, "Count: %lu", count);
-
-
-    ssd1306_set_cursor(5, 40);
-    ssd1306_write_string(font11x18, time);
-    ssd1306_update_screen();
-    HAL_Delay(10);
-    ILI9341_Draw_Text((const char *)time, 10, 10, BLACK, 2, WHITE );
-
-    HAL_Delay(50);
-
-
-    if (count>100)
-      {
-          count = 0;
-          ssd1306_set_cursor(5, 40);
-          ssd1306_write_string(font11x18,"Count: 0   ");
-          ssd1306_update_screen();
-
-          ILI9341_Fill_Screen(WHITE);
-
-          HAL_Delay(100);
-      }
-    else
-      {
-          count++;
-      }
+    HAL_UART_Receive(&huart1, buf, 5, ,100);
+    HAL_UART_Transmit(&huart1, buf, 5, 100 );
+    HAL_Delay(100);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

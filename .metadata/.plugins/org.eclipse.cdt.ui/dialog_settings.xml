@@ -10,7 +10,7 @@
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="890"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="0"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="0"/>
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/Core/Src/driver/st7789}"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/Core/driver}"/>
 	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
 	<item key="LastUsedSourceTemplate" value="Default C source template"/>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
@@ -39,8 +39,8 @@
 		<item key="show_enumerators" value="true"/>
 		<item key="show_macros" value="true"/>
 		<item key="show_lowlevel" value="true"/>
-		<item key="x" value="678"/>
-		<item key="y" value="62"/>
+		<item key="x" value="2717"/>
+		<item key="y" value="168"/>
 		<item key="width" value="565"/>
 		<item key="height" value="681"/>
 	</section>

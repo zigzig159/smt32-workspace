@@ -1,21 +1,25 @@
-15:50:42 **** Incremental Build of configuration Debug for project stm32g431_fw ****
+15:22:08 **** Incremental Build of configuration Debug for project f103_ssd1603 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G431xx -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/ssd1306" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/ili9341" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/stm32g431_fw/Core/Src/driver/st7789" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "stm32g431_fw.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32g431_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32g431_fw.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver" -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Drivers" -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:12: warning: variable 'vout' set but not used [-Wunused-but-set-variable]
+  115 |   uint16_t vout;
+      |            ^~~~
+arm-none-eabi-gcc -o "f103_ssd1603.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f103_ssd1603\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f103_ssd1603.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: f103_ssd1603.elf
  
-arm-none-eabi-size  stm32g431_fw.elf 
-arm-none-eabi-objdump -h -S stm32g431_fw.elf  > "stm32g431_fw.list"
+arm-none-eabi-size  f103_ssd1603.elf 
+arm-none-eabi-objdump -h -S f103_ssd1603.elf  > "f103_ssd1603.list"
    text	   data	    bss	    dec	    hex	filename
-  24064	    112	   3144	  27320	   6ab8	stm32g431_fw.elf
+  20436	    108	   3140	  23684	   5c84	f103_ssd1603.elf
 Finished building: default.size.stdout
  
-Finished building: stm32g431_fw.list
+Finished building: f103_ssd1603.list
  
-15:50:45 **** Incremental Build of configuration Debug for project stm32g431_fw ****
+15:22:15 **** Incremental Build of configuration Debug for project f103_ssd1603 ****
 make -j16 all 
-arm-none-eabi-size  stm32g431_fw.elf 
+arm-none-eabi-size  f103_ssd1603.elf 
    text	   data	    bss	    dec	    hex	filename
-  24064	    112	   3144	  27320	   6ab8	stm32g431_fw.elf
+  20436	    108	   3140	  23684	   5c84	f103_ssd1603.elf
 Finished building: default.size.stdout
  

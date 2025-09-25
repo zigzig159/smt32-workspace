@@ -46,7 +46,7 @@
 /* USER CODE BEGIN PV */
 uint32_t millis(void)
 {
-  HAL_GetTick();
+  return HAL_GetTick();
 }
 /* USER CODE END PV */
 

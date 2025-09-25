@@ -1,4 +1,4 @@
-../Core/Src/driver/7segment.c:11:6:segment_Init	1
-../Core/Src/driver/7segment.c:29:6:pickDigit	5
-../Core/Src/driver/7segment.c:62:6:pickNumber	11
-../Core/Src/driver/7segment.c:159:6:seg_display	2
+../Core/Src/driver/7segment.c:13:6:segment_Init	1
+../Core/Src/driver/7segment.c:31:6:pickDigit	5
+../Core/Src/driver/7segment.c:64:6:pickNumber	11
+../Core/Src/driver/7segment.c:161:6:seg_display	2

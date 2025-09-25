@@ -1,10 +1,10 @@
-11:14:38 **** Build of configuration Debug for project f103_ssd1603 ****
+15:22:15 **** Incremental Build of configuration Debug for project f103_ssd1603 ****
 make -j16 all 
 arm-none-eabi-size  f103_ssd1603.elf 
    text	   data	    bss	    dec	    hex	filename
-  14980	     28	   2764	  17772	   456c	f103_ssd1603.elf
+  20436	    108	   3140	  23684	   5c84	f103_ssd1603.elf
 Finished building: default.size.stdout
  
 
-11:14:38 Build Finished. 0 errors, 0 warnings. (took 320ms)
+15:22:16 Build Finished. 0 errors, 0 warnings. (took 266ms)
 

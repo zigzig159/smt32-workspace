@@ -30,6 +30,8 @@ Core/Src/driver/ili9341/ili9341_GFX.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Src/driver/ili9341/ili9341_GFX.h \
  ../Core/Src/driver/ili9341/5x5_font.h ../Core/Inc/spi.h \
  ../Core/Inc/main.h
@@ -63,6 +65,8 @@ Core/Src/driver/ili9341/ili9341_GFX.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Src/driver/ili9341/ili9341_GFX.h:
 ../Core/Src/driver/ili9341/5x5_font.h:
 ../Core/Inc/spi.h:

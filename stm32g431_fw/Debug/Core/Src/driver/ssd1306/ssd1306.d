@@ -31,6 +31,8 @@ Core/Src/driver/ssd1306/ssd1306.o: ../Core/Src/driver/ssd1306/ssd1306.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Src/driver/ssd1306/../ssd1306/ssd1306_font.h
 ../Core/Src/driver/ssd1306/../ssd1306/ssd1306.h:
 ../Core/Src/driver/ssd1306/../ssd1306/../ssd1306/ssd1306_font.h:
@@ -65,4 +67,6 @@ Core/Src/driver/ssd1306/ssd1306.o: ../Core/Src/driver/ssd1306/ssd1306.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Src/driver/ssd1306/../ssd1306/ssd1306_font.h:

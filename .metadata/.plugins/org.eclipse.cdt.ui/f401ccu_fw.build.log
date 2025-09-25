@@ -1,22 +1,10 @@
-11:14:38 **** Build of configuration Debug for project f401ccu_fw ****
+15:20:54 **** Build of configuration Debug for project f401ccu_fw ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/driver/button.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f401ccu_fw/Core/Src/driver" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/driver/button.d" -MT"Core/Src/driver/button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/driver/button.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f401ccu_fw/Core/Src/driver" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/driver/button.c: In function 'swcount':
-../Core/Src/driver/button.c:22:20: warning: implicit declaration of function 'millis' [-Wimplicit-function-declaration]
-   22 |                if (millis()- pre_time >= 200)
-      |                    ^~~~~~
-arm-none-eabi-gcc -o "f401ccu_fw.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f401ccu_fw\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f401ccu_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: f401ccu_fw.elf
- 
 arm-none-eabi-size  f401ccu_fw.elf 
-arm-none-eabi-objdump -h -S f401ccu_fw.elf  > "f401ccu_fw.list"
    text	   data	    bss	    dec	    hex	filename
    6204	     12	   1580	   7796	   1e74	f401ccu_fw.elf
 Finished building: default.size.stdout
  
-Finished building: f401ccu_fw.list
- 
 
-11:14:39 Build Finished. 0 errors, 1 warnings. (took 1s.124ms)
+15:20:54 Build Finished. 0 errors, 0 warnings. (took 335ms)
 

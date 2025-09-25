@@ -6,18 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Temp_Buffer_text"/>
+		<item key="selection" value="millis"/>
 		<list key="findhistory">
+			<item value="millis"/>
+			<item value="GPIO_InitStruct"/>
 			<item value="Temp_Buffer_text"/>
 			<item value="hspi5"/>
 			<item value="BLACK"/>
 			<item value="CS_Unselect"/>
 			<item value="invon"/>
 			<item value="seg_g"/>
-			<item value="seg_f"/>
-			<item value="seg_e"/>
-			<item value="seg_d"/>
-			<item value="seg_c"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ch"/>
