@@ -29,7 +29,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h \
  C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/ssd1306.h \
  C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/ssd1306_font.h \
- C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/stepmotor.h
+ C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/stepmotor.h \
+ C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/hx711.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -65,3 +66,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/ssd1306.h:
 C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/ssd1306_font.h:
 C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/stepmotor.h:
+C:/Users/RND1/STM32CubeIDE/workspace_1.16.1/f103_ssd1603/Core/driver/hx711.h:

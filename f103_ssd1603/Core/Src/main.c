@@ -27,17 +27,21 @@
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
 #include "stepmotor.h"
+#include "hx711.h"
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+hx711_t sensor;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define PI 3.14159265f
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -59,7 +63,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+char buf[32];
 /* USER CODE END 0 */
 
 /**
@@ -70,6 +74,13 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+  /* sensor.clk_gpio=GPIOA;
+   sensor.clk_pin=GPIO_PIN_8;
+   sensor.dat_gpio=GPIOB;
+   sensor.dat_pin=GPIO_PIN_8;
+   sensor.mode=0;
+   sensor.SCALE = 1.f;
+*/
 
   /* USER CODE END 1 */
 
@@ -94,6 +105,7 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   MX_ADC1_Init();
+
   /* USER CODE BEGIN 2 */
   ssd1306_init();
 
@@ -102,43 +114,48 @@ int main(void)
   ssd1306_write_string(font6x8, "Rotech ssd1603");
   ssd1306_enter();
   ssd1306_set_cursor(5, 8);
-  ssd1306_write_string(font6x8, "revolution 1.0");
+  ssd1306_write_string(font6x8, "hx711 test");
 
   ssd1306_set_cursor(5, 24);
-  ssd1306_write_string(font6x8, "build BY JANG");
+  ssd1306_write_string(font6x8, "         ");
 
   ssd1306_set_cursor(5, 40);
   ssd1306_write_string(font11x18, "            ");
   ssd1306_update_screen();
   /* USER CODE END 2 */
-  uint16_t value;
-  uint16_t vout;
-  //float temp;
+int count = 0;
+float weight = 0;;
 
-  char buf[100];
+  hx711_init(&sensor, GPIOA, GPIO_PIN_8, GPIOB, GPIO_PIN_8);
+  hx711_calibration(&sensor,108443,108541,1);
+  hx711_coef_set(&sensor, 354.5); // read afer calibration
+  hx711_tare(&sensor, 10);
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-       HAL_ADC_Start(&hadc1);
-       HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-       value = HAL_ADC_GetValue(&hadc1);
-       HAL_ADC_Stop(&hadc1);
 
-       vout = 5002 * value / (4700 + value);
-       //temp = (float)vout / 10.0;
 
-       HAL_Delay(100);
 
-       sprintf(buf, "ADC:%d", value);
+    weight = hx711_weight(&sensor, 10);
+    snprintf(buf, sizeof(buf), "RAW: %d", (int)weight);
 
-       ssd1306_set_cursor(5, 40);
-       ssd1306_write_string(font11x18, "         ");
-       ssd1306_set_cursor(5, 40);
-       ssd1306_write_string(font11x18, buf);
-       ssd1306_update_screen();
+    ssd1306_set_cursor(5, 40);
+    ssd1306_write_string(font11x18, buf);
+    snprintf(buf, sizeof(buf), "count : %d", count);
+    ssd1306_set_cursor(5, 24);
+    ssd1306_write_string(font6x8, buf);
+    ssd1306_update_screen();
+
+    HAL_Delay(100);
+    count++;
+    if(count >1000)
+    {
+      count = 0;
+    }
 
     /* USER CODE BEGIN 3 */
   }

@@ -18,12 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 #include "gpio.h"
-
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "7segment.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +59,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int count = 0;
 /* USER CODE END 0 */
 
 /**
@@ -68,7 +69,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  int num = 0;
+  int mode = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -76,7 +78,7 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
- /* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -88,30 +90,23 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
 
    segment_Init();
+   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
-   uint32_t pretime = 0;
-   int countt = 0;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
-     if(millis()-pretime >= 200)
-        {
-          pretime = millis();
-          countt++;
-        }
-        seg_display(countt);
-        if(countt>10000)
-        {
-          countt = 0;
-          }
-      /* USER CODE BEGIN 3 */
+    Seg_Display();
+
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -156,7 +151,12 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+  if(count >= 9999)
+  {count = 0;}
+  count++;
+  Num_Calculator(count);
+}
 /* USER CODE END 4 */
 
 /**

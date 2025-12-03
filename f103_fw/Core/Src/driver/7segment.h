@@ -13,7 +13,8 @@
 void segment_Init(void);
 void pickDigit(int x);
 void pickNumber(int x);
-void seg_display(int a);
+void Num_Calculator(int a);
+void Seg_Display();
 
 
 #endif /* SRC_DRIVER_7SEGMENT_H_ */

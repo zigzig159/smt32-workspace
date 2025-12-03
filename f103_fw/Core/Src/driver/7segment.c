@@ -10,6 +10,12 @@
 #include "main.h"
 #include "7segment.h"
 
+  int first_digit = 0;
+  int second_digit = 0;
+  int third_digit = 0;
+  int fourth_digit = 0;
+  int digits[4];
+
 void segment_Init(void)
 {
 
@@ -158,13 +164,9 @@ void pickNumber(int x)
   }
 }
 
-void seg_display(int a)
+void Num_Calculator(int a)
 {
-  int first_digit = 0;
-  int second_digit = 0;
-  int third_digit = 0;
-  int fourth_digit = 0;
-  int digits[4];
+
 
   first_digit = a / 1000;
   digits[0] = first_digit;
@@ -176,7 +178,8 @@ void seg_display(int a)
   digits[2] = third_digit;
   fourth_digit = second_left - (third_digit * 10);
   digits[3] = fourth_digit;
-
+}
+void Seg_Display(){
   for(int i = 0; i<4; i++)
   {
   pickDigit(i);

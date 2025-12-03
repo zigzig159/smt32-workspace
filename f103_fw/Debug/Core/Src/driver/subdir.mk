@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/driver/7segment.c 
+../Core/Src/driver/7segment.c \
+../Core/Src/driver/button.c 
 
 OBJS += \
-./Core/Src/driver/7segment.o 
+./Core/Src/driver/7segment.o \
+./Core/Src/driver/button.o 
 
 C_DEPS += \
-./Core/Src/driver/7segment.d 
+./Core/Src/driver/7segment.d \
+./Core/Src/driver/button.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Core/Src/driver/%.o Core/Src/driver/%.su Core/Src/driver/%.cyclo: ../Core/Src/dr
 clean: clean-Core-2f-Src-2f-driver
 
 clean-Core-2f-Src-2f-driver:
-	-$(RM) ./Core/Src/driver/7segment.cyclo ./Core/Src/driver/7segment.d ./Core/Src/driver/7segment.o ./Core/Src/driver/7segment.su
+	-$(RM) ./Core/Src/driver/7segment.cyclo ./Core/Src/driver/7segment.d ./Core/Src/driver/7segment.o ./Core/Src/driver/7segment.su ./Core/Src/driver/button.cyclo ./Core/Src/driver/button.d ./Core/Src/driver/button.o ./Core/Src/driver/button.su
 
 .PHONY: clean-Core-2f-Src-2f-driver
 

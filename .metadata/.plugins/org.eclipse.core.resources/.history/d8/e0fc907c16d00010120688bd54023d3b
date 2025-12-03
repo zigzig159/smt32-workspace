@@ -1,0 +1,34 @@
+/*
+ * hx711.h
+ *
+ *  Created on: 17 Dec 2018
+ *      Author: Non Kositkittiwanit
+ */
+
+#ifndef SRC_DRIVERHX711_H_
+#define SRC_DRIVERHX711_H_
+
+
+#include "stm32f1xx_hal.h"
+#include <stdint.h>
+
+
+typedef struct {
+      GPIO_TypeDef* dout_port;
+      uint16_t      dout_pin;
+      GPIO_TypeDef* sck_port;
+      uint16_t      sck_pin;		//GPIO_Pin
+	    int offset;
+	    float SCALE;
+	    int mode;		// 0 Input channel A, gain=128
+					// 1 Input channel B, gain=32
+					// 2 Input channel A, gain=64
+}HX711_t;
+
+int HX711_Read(HX711* H);
+int HX711_AvgRead(HX711* H, int times);
+void HX711_Tare(HX711* H, int times);
+int HX711_GetValue(HX711* H);
+int HX711_GetAvgValue(HX711* H, int times);
+
+#endif /* HX711_H_ */

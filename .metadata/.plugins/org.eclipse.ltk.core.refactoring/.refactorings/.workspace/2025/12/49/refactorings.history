@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;f103_ssd1603/Core/driver/hx711.c&apos;" deleteContents="false" description="Delete resource &apos;f103_ssd1603/Core/driver/hx711.c&apos;" element1="/f103_ssd1603/Core/driver/hx711.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1764744827240"/>&#x0A;<refactoring comment="Delete resource &apos;f103_ssd1603/Core/driver/hx711.h&apos;" deleteContents="false" description="Delete resource &apos;f103_ssd1603/Core/driver/hx711.h&apos;" element1="/f103_ssd1603/Core/driver/hx711.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1764744884701"/>
+</session>

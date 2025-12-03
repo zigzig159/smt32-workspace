@@ -1,0 +1,63 @@
+/*
+ * hx711.c
+ *
+ *  Created on: Dec 3, 2025
+ *      Author: RND1
+ */
+
+
+#include "hx711.h"
+
+static void HX711_Delay(void)
+{
+    /* 약 1~2us 정도 되도록 조절 (클럭 속도에 따라 조정 가능) */
+    for (volatile int i = 0; i < 50; i++) {
+        __NOP();
+    }
+}
+
+void HX711_Init(HX711_t* hx)
+{
+    HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_RESET);
+}
+
+uint8_t HX711_IsReady(HX711_t* hx)
+{
+    return (HAL_GPIO_ReadPin(hx->dout_port, hx->dout_pin) == GPIO_PIN_RESET);
+}
+
+int32_t HX711_ReadRaw(HX711_t* hx)
+{
+    int32_t data = 0;
+
+    /* 데이터 준비될 때까지 대기 (DOUT = LOW) */
+    while (!HX711_IsReady(hx));
+
+    /* 24비트 읽기 */
+    for (int i = 0; i < 24; i++)
+    {
+        HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_SET);
+        HX711_Delay();
+
+        data = data << 1;
+        if (HAL_GPIO_ReadPin(hx->dout_port, hx->dout_pin) == GPIO_PIN_SET) {
+            data++;
+        }
+
+        HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_RESET);
+        HX711_Delay();
+    }
+
+    /* 채널 A, gain 128 선택 -> 추가로 클럭 1번 더 */
+    HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_SET);
+    HX711_Delay();
+    HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_RESET);
+    HX711_Delay();
+
+    /* 부호 확장 (24비트 2의 보수 -> 32비트) */
+    if (data & 0x800000) {
+        data |= (int32_t)0xFF000000;
+    }
+
+    return data;
+}

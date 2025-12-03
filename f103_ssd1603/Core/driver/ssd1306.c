@@ -10,7 +10,7 @@
 #include "ssd1306.h"
 
 #include <string.h> // memcpy
-
+#include <stdlib.h> //abs 절대값 함수
 #include "ssd1306_font.h"
 
 /* SSD1306 Variable */
@@ -321,6 +321,34 @@ char ssd1306_write_string(SSD1306_FONT font, char *str)
     // Everything ok
     return *str;
 }
+
+void ssd1306_draw_line(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
+{
+    int dx = abs(x1 - x0);
+    int dy = abs(y1 - y0);
+    int sx = (x0 < x1) ? 1 : -1;
+    int sy = (y0 < y1) ? 1 : -1;
+    int err = dx - dy;
+
+    while (1) {
+        ssd1306_white_pixel(x0, y0);  // 점 찍기
+
+        // 종료 조건
+        if (x0 == x1 && y0 == y1) break;
+
+        int e2 = 2 * err;
+
+        if (e2 > -dy) {
+            err -= dy;
+            x0 += sx;
+        }
+        if (e2 < dx) {
+            err += dx;
+            y0 += sy;
+        }
+    }
+}
+
 
 void ssd1306_set_cursor(uint8_t x, uint8_t y)
 {
