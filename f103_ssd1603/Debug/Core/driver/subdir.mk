@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/driver/bme280.c \
 ../Core/driver/button.c \
 ../Core/driver/hx711.c \
 ../Core/driver/ssd1306.c \
@@ -12,6 +13,7 @@ C_SRCS += \
 ../Core/driver/stepmotor.c 
 
 OBJS += \
+./Core/driver/bme280.o \
 ./Core/driver/button.o \
 ./Core/driver/hx711.o \
 ./Core/driver/ssd1306.o \
@@ -19,6 +21,7 @@ OBJS += \
 ./Core/driver/stepmotor.o 
 
 C_DEPS += \
+./Core/driver/bme280.d \
 ./Core/driver/button.d \
 ./Core/driver/hx711.d \
 ./Core/driver/ssd1306.d \
@@ -33,7 +36,7 @@ Core/driver/%.o Core/driver/%.su Core/driver/%.cyclo: ../Core/driver/%.c Core/dr
 clean: clean-Core-2f-driver
 
 clean-Core-2f-driver:
-	-$(RM) ./Core/driver/button.cyclo ./Core/driver/button.d ./Core/driver/button.o ./Core/driver/button.su ./Core/driver/hx711.cyclo ./Core/driver/hx711.d ./Core/driver/hx711.o ./Core/driver/hx711.su ./Core/driver/ssd1306.cyclo ./Core/driver/ssd1306.d ./Core/driver/ssd1306.o ./Core/driver/ssd1306.su ./Core/driver/ssd1306_font.cyclo ./Core/driver/ssd1306_font.d ./Core/driver/ssd1306_font.o ./Core/driver/ssd1306_font.su ./Core/driver/stepmotor.cyclo ./Core/driver/stepmotor.d ./Core/driver/stepmotor.o ./Core/driver/stepmotor.su
+	-$(RM) ./Core/driver/bme280.cyclo ./Core/driver/bme280.d ./Core/driver/bme280.o ./Core/driver/bme280.su ./Core/driver/button.cyclo ./Core/driver/button.d ./Core/driver/button.o ./Core/driver/button.su ./Core/driver/hx711.cyclo ./Core/driver/hx711.d ./Core/driver/hx711.o ./Core/driver/hx711.su ./Core/driver/ssd1306.cyclo ./Core/driver/ssd1306.d ./Core/driver/ssd1306.o ./Core/driver/ssd1306.su ./Core/driver/ssd1306_font.cyclo ./Core/driver/ssd1306_font.d ./Core/driver/ssd1306_font.o ./Core/driver/ssd1306_font.su ./Core/driver/stepmotor.cyclo ./Core/driver/stepmotor.d ./Core/driver/stepmotor.o ./Core/driver/stepmotor.su
 
 .PHONY: clean-Core-2f-driver
 

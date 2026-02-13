@@ -88,7 +88,7 @@ int32_t hx711_value(hx711_t *hx711)
 //#############################################################################################
 int32_t hx711_value_ave(hx711_t *hx711, uint16_t sample)
 {
-  hx711_lock(hx711);
+  //hx711_lock(hx711);
   int64_t  ave = 0;
   for(uint16_t i=0 ; i<sample ; i++)
   {
@@ -96,13 +96,15 @@ int32_t hx711_value_ave(hx711_t *hx711, uint16_t sample)
     hx711_delay(5);
   }
   int32_t answer = (int32_t)(ave / sample);
-  hx711_unlock(hx711);
+  //hx711_unlock(hx711);
   return answer;
 }
 //#############################################################################################
+/*TODO : offset 값을 설정하는 함수, sample 값 횟수만큼 샘플링을 하고 평균치를 계산함. 이때 영점 조절용 무게추가 올라가 있지 않은
+ * 상태로 해야함.*/
 void hx711_tare(hx711_t *hx711, uint16_t sample)
 {
-  hx711_lock(hx711);
+  //hx711_lock(hx711);
   int64_t  ave = 0;
   for(uint16_t i=0 ; i<sample ; i++)
   {
@@ -110,20 +112,21 @@ void hx711_tare(hx711_t *hx711, uint16_t sample)
     hx711_delay(5);
   }
   hx711->offset = (int32_t)(ave / sample);
-  hx711_unlock(hx711);
+  //hx711_unlock(hx711);
 }
 //#############################################################################################
+/*TODO : off set 값과 coef(계수값)을 설정하는 함수, 사용자가 수기로 설정할 수 있다. 사전 측정 필요함. */
 void hx711_calibration(hx711_t *hx711, int32_t noload_raw, int32_t load_raw, float scale)
 {
-  hx711_lock(hx711);
+  //hx711_lock(hx711);
   hx711->offset = noload_raw;
-  hx711->coef = (load_raw - noload_raw) / scale;
-  hx711_unlock(hx711);
+  hx711->coef = load_raw  / scale;
+  //hx711_unlock(hx711);
 }
 //#############################################################################################
 float hx711_weight(hx711_t *hx711, uint16_t sample)
 {
-  hx711_lock(hx711);
+  //hx711_lock(hx711);
   int64_t  ave = 0;
   for(uint16_t i=0 ; i<sample ; i++)
   {
@@ -132,7 +135,7 @@ float hx711_weight(hx711_t *hx711, uint16_t sample)
   }
   int32_t data = (int32_t)(ave / sample);
   float answer =  (data - hx711->offset) / hx711->coef;
-  hx711_unlock(hx711);
+  //hx711_unlock(hx711);
   return answer;
 }
 //#############################################################################################
@@ -141,7 +144,7 @@ void hx711_coef_set(hx711_t *hx711, float coef)
   hx711->coef = coef;
 }
 //#############################################################################################
-float hx711_coef_get(hx711_t *hx711)
+int32_t hx711_coef_get(hx711_t *hx711)
 {
   return hx711->coef;
 }

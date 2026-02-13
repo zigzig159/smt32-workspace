@@ -25,12 +25,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdint.h>
 #include <stdio.h>
 #include "st7789.h"
-#include "ili9341_STM32_Driver.h"
-#include "ili9341_GFX.h"
-#include "snow_tiger.h"
-#include "ssd1306.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,6 +62,7 @@ void SystemClock_Config(void);
 char time[20];
 uint32_t count = 0;
 uint8_t buf[100] = "RXTX";
+int down = 0;
 /* USER CODE END 0 */
 
 /**
@@ -101,44 +99,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  ssd1306_init();
+  ST7789_Init();
+  ST7789_FillScreen(COLOR_RED);
+  HAL_Delay(2000);
 
-    ssd1306_set_cursor(5, 0);
-
-    ssd1306_write_string(font6x8, "G431 ssd1603");
-    ssd1306_enter();
-    ssd1306_set_cursor(5, 8);
-    ssd1306_write_string(font6x8, "revolution 1.1");
-
-    ssd1306_set_cursor(5, 24);
-    ssd1306_write_string(font6x8, "build BY JANG");
-
-    ssd1306_set_cursor(5, 40);
-    ssd1306_write_string(font11x18, "            ");
-    ssd1306_update_screen();
- /* HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_SET);
-
-   ST7789_Init();
-
-   // ?���?????? ?��?��?��
-   ST7789_FillScreen(COLOR_BLACK);
-   HAL_Delay(500);
-
-   ST7789_FillScreen(COLOR_RED);
-   HAL_Delay(500);
-   ST7789_FillScreen(COLOR_GREEN);
-   HAL_Delay(500);
-   ST7789_FillScreen(COLOR_BLUE);
-   HAL_Delay(500);
-
-
-   ST7789_FillScreen(COLOR_BLACK);
-   ST7789_FillRect(10, 10, 100, 60, COLOR_YELLOW);
-   ST7789_DrawRect(8, 8, 104, 64, COLOR_WHITE);
-   ST7789_DrawPixel(120, 120, COLOR_CYAN);*/
-   ILI9341_Init();
-   ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-   HAL_Delay(100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -146,9 +110,25 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    HAL_UART_Receive(&huart1, buf, 5, ,100);
-    HAL_UART_Transmit(&huart1, buf, 5, 100 );
-    HAL_Delay(100);
+
+
+
+    for (int down = 0; down < 299; down++)
+     {
+       // 새 사각형
+       ST7789_FillRect((uint16_t)down, 0, 40, 60, COLOR_YELLOW);
+
+       // 뒤쪽 1픽셀만 지우기 (down-1 위치의 세로줄)
+       if (down > 0)
+         ST7789_FillRect((uint16_t)(down - 1), 0, 1, 60, COLOR_RED);
+
+       HAL_Delay(1);
+     }
+
+    ST7789_FillScreen(COLOR_RED);
+
+
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

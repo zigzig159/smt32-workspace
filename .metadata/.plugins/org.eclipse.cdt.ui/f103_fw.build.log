@@ -1,10 +1,10 @@
-14:58:38 **** Incremental Build of configuration Debug for project f103_fw ****
+14:25:02 **** Incremental Build of configuration Debug for project f103_fw ****
 make -j16 all 
 arm-none-eabi-size  f103_fw.elf 
    text	   data	    bss	    dec	    hex	filename
-   8756	     12	   1676	  10444	   28cc	f103_fw.elf
+  12112	     12	   1724	  13848	   3618	f103_fw.elf
 Finished building: default.size.stdout
  
 
-14:58:38 Build Finished. 0 errors, 0 warnings. (took 253ms)
+14:25:02 Build Finished. 0 errors, 0 warnings. (took 259ms)
 

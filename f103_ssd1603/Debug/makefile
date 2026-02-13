@@ -62,7 +62,7 @@ main-build: f103_ssd1603.elf secondary-outputs
 
 # Tool invocations
 f103_ssd1603.elf f103_ssd1603.map: $(OBJS) $(USER_OBJS) C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f103_ssd1603\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "f103_ssd1603.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f103_ssd1603\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f103_ssd1603.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "f103_ssd1603.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\f103_ssd1603\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f103_ssd1603.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

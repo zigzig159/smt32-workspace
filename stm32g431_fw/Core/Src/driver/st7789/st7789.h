@@ -26,13 +26,13 @@
 // =================================
 
 // 해상도
-#define ST7789_WIDTH   170
-#define ST7789_HEIGHT  320
+#define ST7789_WIDTH   320
+#define ST7789_HEIGHT  170
 
 // (패널에 따라 오프셋이 있을 수 있음. 검은 테두리 보이면 조정)
 // 일반적인 240x240 모듈은 0,0
-#define ST7789_X_OFFSET  35
-#define ST7789_Y_OFFSET  0
+#define ST7789_X_OFFSET  0
+#define ST7789_Y_OFFSET  35
 
 // 색상(RGB565) 헬퍼
 #define RGB565(r,g,b)   (uint16_t)((((r)&0x1F)<<11) | (((g)&0x3F)<<5) | ((b)&0x1F))

@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
+#include "bme280.h"
 #include "stepmotor.h"
 #include "hx711.h"
 #include <stdio.h>
@@ -37,11 +38,12 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 hx711_t sensor;
+BME280_Data_t BME280;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define PI 3.14159265f
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -58,14 +60,34 @@ hx711_t sensor;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void Sensor_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 char buf[32];
 /* USER CODE END 0 */
+void Sensor_Init(void)
+{
 
+  //Init structure definition section
+  BME280_Init_t BME280_InitStruct = {0};
+
+  //Reset section
+  Reset_BME280();
+
+  /*============================ *BME280 Initialization* ============================*/
+
+  BME280_InitStruct.Filter = FILTER_8;            //FILTER_X
+  BME280_InitStruct.Mode = BME280_NORMAL_MODE;      //SLEEP, NORMAL or FORCE can be written
+  BME280_InitStruct.OverSampling_H = OVERSAMPLING_16;   //OVERSAMPLING_X
+  BME280_InitStruct.OverSampling_P = OVERSAMPLING_16;   //OVERSAMPLING_X
+  BME280_InitStruct.OverSampling_T = OVERSAMPLING_16;   //OVERSAMPLING_X
+  BME280_InitStruct.SPI_EnOrDıs = SPI3_W_DISABLE;     //SPI3_W_DISABLE or SPI3_W_ENABLE can be written
+  BME280_InitStruct.T_StandBy = T_SB_250;         //T_SB_X
+
+  BME280Init(BME280_InitStruct);
+}
 /**
   * @brief  The application entry point.
   * @retval int
@@ -74,13 +96,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  /* sensor.clk_gpio=GPIOA;
-   sensor.clk_pin=GPIO_PIN_8;
-   sensor.dat_gpio=GPIOB;
-   sensor.dat_pin=GPIO_PIN_8;
-   sensor.mode=0;
-   sensor.SCALE = 1.f;
-*/
+
 
   /* USER CODE END 1 */
 
@@ -114,7 +130,7 @@ int main(void)
   ssd1306_write_string(font6x8, "Rotech ssd1603");
   ssd1306_enter();
   ssd1306_set_cursor(5, 8);
-  ssd1306_write_string(font6x8, "hx711 test");
+  ssd1306_write_string(font6x8, "load cell test");
 
   ssd1306_set_cursor(5, 24);
   ssd1306_write_string(font6x8, "         ");
@@ -123,39 +139,42 @@ int main(void)
   ssd1306_write_string(font11x18, "            ");
   ssd1306_update_screen();
   /* USER CODE END 2 */
-int count = 0;
-float weight = 0;;
+uint32_t count = 0;
+float weight = 0;
+int32_t low = 0;
 
   hx711_init(&sensor, GPIOA, GPIO_PIN_8, GPIOB, GPIO_PIN_8);
-  hx711_calibration(&sensor,108443,108541,1);
-  hx711_coef_set(&sensor, 354.5); // read afer calibration
-  hx711_tare(&sensor, 10);
+  //hx711_tare(&sensor, 10);
+  hx711_calibration(&sensor,8701460,8748208,354.5);
+  //hx711_coef_set(&sensor, 467.56); // read afer calibration
 
 
+  Sensor_Init();
+
+  uint32_t pre_time;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+    pre_time = HAL_GetTick();
+    BME280Calculation(&BME280);
 
-
-
-    weight = hx711_weight(&sensor, 10);
-    snprintf(buf, sizeof(buf), "RAW: %d", (int)weight);
+    weight = hx711_weight(&sensor,1);
+    snprintf(buf, sizeof(buf), "  %4.2f kg", weight);
 
     ssd1306_set_cursor(5, 40);
     ssd1306_write_string(font11x18, buf);
-    snprintf(buf, sizeof(buf), "count : %d", count);
+
+    count = HAL_GetTick()- pre_time;
+    snprintf(buf, sizeof(buf), "FPS(ms) : %d", (int)count);
     ssd1306_set_cursor(5, 24);
     ssd1306_write_string(font6x8, buf);
     ssd1306_update_screen();
 
-    HAL_Delay(100);
-    count++;
-    if(count >1000)
-    {
-      count = 0;
-    }
+
+
+
 
     /* USER CODE BEGIN 3 */
   }
@@ -246,3 +265,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+

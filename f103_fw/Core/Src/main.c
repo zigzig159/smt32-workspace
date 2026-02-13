@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -91,11 +92,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
 
    segment_Init();
+
+   HAL_GPIO_WritePin(GPIOC, seg_dp_Pin, GPIO_PIN_SET);
    HAL_TIM_Base_Start_IT(&htim2);
+   HAL_ADC_Start(&hadc1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,9 +108,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
     Seg_Display();
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -119,6 +122,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -148,15 +152,29 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-  if(count >= 9999)
-  {count = 0;}
-  count++;
-  Num_Calculator(count);
-}
+
+      int adc = 0;
+      HAL_ADC_Start(&hadc1);
+
+      // 변환 완료 시간은 최대 10ms
+      if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK)
+      {
+        adc = HAL_ADC_GetValue(&hadc1);  // 0~4095
+      }
+      HAL_ADC_Stop(&hadc1);
+      Num_Calculator(adc);
+    }
+
 /* USER CODE END 4 */
 
 /**

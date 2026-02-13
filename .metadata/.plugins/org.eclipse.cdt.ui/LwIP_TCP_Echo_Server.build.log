@@ -1,0 +1,10 @@
+14:43:17 **** Incremental Build of configuration Debug for project LwIP_TCP_Echo_Server ****
+make -j16 all 
+arm-none-eabi-size  LwIP_TCP_Echo_Server.elf 
+   text	   data	    bss	    dec	    hex	filename
+  88504	    156	  50215	 138875	  21e7b	LwIP_TCP_Echo_Server.elf
+Finished building: default.size.stdout
+ 
+
+14:43:17 Build Finished. 0 errors, 0 warnings. (took 364ms)
+

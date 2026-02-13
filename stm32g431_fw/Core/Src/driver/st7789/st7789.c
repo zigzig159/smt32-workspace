@@ -3,6 +3,9 @@
  *
  *  Created on: Sep 9, 2025
  *      Author: RND1
+ *
+ *      @note 320*170 해상도를 가진 TFT 디스플레이 구동 드라이버 코드, INVON(0x21) 커맨드가 기존 0x20으로 되어있을 때는 흰색, 검정색만 출력이 되었음.
+ *            리셋 핀은 MCU와 연결이 되지 않았음으로 수동으로 리셋을 하거나 해야 할것으로 보임
  */
 
 
@@ -87,7 +90,7 @@ void ST7789_Init(void) {
     WriteData(&colmod, 1);
 
     // 인버트: 패널에 따라 다름. 보통 INVON(0x21)이 색감이 정상인 경우가 많음.
-    WriteCommand(0x20); // INVON
+    WriteCommand(0x21); // INVON
     HAL_Delay(10);
 
     // 노멀 디스플레이
@@ -99,7 +102,7 @@ void ST7789_Init(void) {
     HAL_Delay(100);
 
     // 기본 회전
-    ST7789_SetRotation(0);
+    ST7789_SetRotation(1);
 }
 
 void ST7789_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
