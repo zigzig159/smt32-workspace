@@ -22,6 +22,7 @@
 #include "tim.h"
 #include "gpio.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "7segment.h"
@@ -61,6 +62,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int count = 0;
+
 /* USER CODE END 0 */
 
 /**
@@ -70,8 +72,8 @@ int count = 0;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  int num = 0;
-  int mode = 0;
+  //int num = 0;
+  //int mode = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -108,6 +110,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
     Seg_Display();
     /* USER CODE BEGIN 3 */
   }

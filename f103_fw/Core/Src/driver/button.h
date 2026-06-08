@@ -5,14 +5,18 @@
  *      Author: RND1
  */
 
+#include "main.h"
+
 #ifndef SRC_DRIVER_BUTTON_H_
 #define SRC_DRIVER_BUTTON_H_
 
 
+uint32_t keyPressed();
+void keyProcess();
+void keyEvent();
 
-int button_countup();
 void swcount();
 void swchose();
-void swdisplay();
+
 
 #endif /* SRC_DRIVER_BUTTON_H_ */

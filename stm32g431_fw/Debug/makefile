@@ -14,6 +14,7 @@ RM := rm -rf
 -include Core/Src/driver/st7789/subdir.mk
 -include Core/Src/driver/ssd1306/subdir.mk
 -include Core/Src/driver/ili9341/subdir.mk
+-include Core/Src/driver/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
@@ -64,7 +65,7 @@ main-build: stm32g431_fw.elf secondary-outputs
 
 # Tool invocations
 stm32g431_fw.elf stm32g431_fw.map: $(OBJS) $(USER_OBJS) C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32g431_fw.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32g431_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "stm32g431_fw.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RND1\STM32CubeIDE\workspace_1.16.1\stm32g431_fw\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32g431_fw.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

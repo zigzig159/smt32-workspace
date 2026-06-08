@@ -31,7 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -89,7 +91,8 @@ void Error_Handler(void);
 #define seg_e_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+#define true 1
+#define false 0
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

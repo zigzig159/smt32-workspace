@@ -6,7 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="millis"/>
+		<item key="selection" value="Init"/>
 		<list key="findhistory">
 			<item value="millis"/>
 			<item value="GPIO_InitStruct"/>
@@ -26,8 +26,6 @@
 			<item value="seg_c_GPIO_Port"/>
 			<item value="GPIO_PIN_RESET"/>
 			<item value="seg_b_GPIO_Port"/>
-			<item value="GPIO_PIN_SET"/>
-			<item value="HAL_GPIO_WritePin"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

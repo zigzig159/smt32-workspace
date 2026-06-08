@@ -1,10 +1,10 @@
-16:33:44 **** Incremental Build of configuration Debug for project stm32g431_fw ****
+14:21:27 **** Incremental Build of configuration Debug for project stm32g431_fw ****
 make -j16 all 
 arm-none-eabi-size  stm32g431_fw.elf 
    text	   data	    bss	    dec	    hex	filename
-  15520	     12	   1908	  17440	   4420	stm32g431_fw.elf
+  35792	    476	   3316	  39584	   9aa0	stm32g431_fw.elf
 Finished building: default.size.stdout
  
 
-16:33:45 Build Finished. 0 errors, 0 warnings. (took 313ms)
+14:21:27 Build Finished. 0 errors, 0 warnings. (took 307ms)
 

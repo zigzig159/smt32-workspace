@@ -27,12 +27,13 @@
 /* USER CODE BEGIN Includes */
 #include <stdint.h>
 #include <stdio.h>
-#include "st7789.h"
+#include "ssd1306.h"
+#include "ds18b20.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+DS18B20_HandleTypeDef hds18b20;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -48,7 +49,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+float g_temperature = 0.0f;
+char buf[32];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,10 +61,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-char time[20];
-uint32_t count = 0;
-uint8_t buf[100] = "RXTX";
-int down = 0;
+
 /* USER CODE END 0 */
 
 /**
@@ -98,10 +97,8 @@ int main(void)
   MX_I2C2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  ST7789_Init();
-  ST7789_FillScreen(COLOR_RED);
-  HAL_Delay(2000);
+  DS18B20_Init(&hds18b20, GPIOC, GPIO_PIN_13);
+  ssd1306_init();
 
   /* USER CODE END 2 */
 
@@ -110,25 +107,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-
-
-    for (int down = 0; down < 299; down++)
-     {
-       // 새 사각형
-       ST7789_FillRect((uint16_t)down, 0, 40, 60, COLOR_YELLOW);
-
-       // 뒤쪽 1픽셀만 지우기 (down-1 위치의 세로줄)
-       if (down > 0)
-         ST7789_FillRect((uint16_t)(down - 1), 0, 1, 60, COLOR_RED);
-
-       HAL_Delay(1);
-     }
-
-    ST7789_FillScreen(COLOR_RED);
-
-
-
+    DS18B20_ReadTemperature(&hds18b20, &g_temperature);
+    snprintf(buf, sizeof(buf), "  %4.2f'C", g_temperature);
+    ssd1306_set_cursor(5, 40);
+    ssd1306_write_string(font11x18, buf);
+    ssd1306_update_screen();
+    HAL_Delay(100);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

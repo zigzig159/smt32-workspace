@@ -1,3 +1,4 @@
+"./Core/Src/driver/ds18b20.o"
 "./Core/Src/driver/ili9341/ili9341_GFX.o"
 "./Core/Src/driver/ili9341/ili9341_STM32_Driver.o"
 "./Core/Src/driver/ssd1306/ssd1306.o"
