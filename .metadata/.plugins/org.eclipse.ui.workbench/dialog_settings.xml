@@ -40,19 +40,15 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
-			<item value="/f407vet6_fw/Core/Src/sdio.c"/>
 			<item value="org.eclipse.cdt.ui.editor.CEditorf407vet6_fw/Core/Src/main.c"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
 			<item value="org.eclipse.ui.editors"/>
 		</list>
 		<list key="textEntries">
 			<item value="1"/>
-			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="sdi"/>
 			<item value="main"/>
 		</list>
 	</section>
