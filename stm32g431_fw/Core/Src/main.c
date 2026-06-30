@@ -27,13 +27,13 @@
 /* USER CODE BEGIN Includes */
 #include <stdint.h>
 #include <stdio.h>
-#include "ssd1306.h"
-#include "ds18b20.h"
+#include "st7789.h"
+#include "st7789_font.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-DS18B20_HandleTypeDef hds18b20;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -49,8 +49,7 @@ DS18B20_HandleTypeDef hds18b20;
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-float g_temperature = 0.0f;
-char buf[32];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,7 +60,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+char buf[32];
 /* USER CODE END 0 */
 
 /**
@@ -97,9 +96,7 @@ int main(void)
   MX_I2C2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  DS18B20_Init(&hds18b20, GPIOC, GPIO_PIN_13);
-  ssd1306_init();
-
+  ST7789_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,12 +104,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    DS18B20_ReadTemperature(&hds18b20, &g_temperature);
-    snprintf(buf, sizeof(buf), "  %4.2f'C", g_temperature);
-    ssd1306_set_cursor(5, 40);
-    ssd1306_write_string(font11x18, buf);
-    ssd1306_update_screen();
-    HAL_Delay(100);
+    ST7789_FillRect(0,0,320,240,COLOR_WHITE);
+    snprintf(buf, sizeof(buf), "st7789 test!!!");
+    st7789_write_string(0, 30, font6x8, buf, COLOR_RED, COLOR_WHITE);
+    HAL_Delay(2000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

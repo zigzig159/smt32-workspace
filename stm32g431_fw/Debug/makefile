@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (14.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -12,7 +12,6 @@ RM := rm -rf
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/driver/st7789/subdir.mk
--include Core/Src/driver/ssd1306/subdir.mk
 -include Core/Src/driver/ili9341/subdir.mk
 -include Core/Src/driver/subdir.mk
 -include Core/Src/subdir.mk

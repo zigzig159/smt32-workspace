@@ -6,16 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Init"/>
+		<item key="selection" value="font6x8"/>
 		<list key="findhistory">
+			<item value="font6x8"/>
+			<item value="current_font"/>
+			<item value="set_A"/>
+			<item value="BURST_MAX_SIZE"/>
+			<item value="0x36"/>
 			<item value="millis"/>
 			<item value="GPIO_InitStruct"/>
 			<item value="Temp_Buffer_text"/>
-			<item value="hspi5"/>
-			<item value="BLACK"/>
-			<item value="CS_Unselect"/>
-			<item value="invon"/>
-			<item value="seg_g"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ch"/>

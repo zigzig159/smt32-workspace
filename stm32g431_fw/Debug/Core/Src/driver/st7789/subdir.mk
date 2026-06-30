@@ -1,17 +1,20 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (14.3.rel1)
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/driver/st7789/st7789.c 
+../Core/Src/driver/st7789/st7789.c \
+../Core/Src/driver/st7789/st7789_font.c 
 
 OBJS += \
-./Core/Src/driver/st7789/st7789.o 
+./Core/Src/driver/st7789/st7789.o \
+./Core/Src/driver/st7789/st7789_font.o 
 
 C_DEPS += \
-./Core/Src/driver/st7789/st7789.d 
+./Core/Src/driver/st7789/st7789.d \
+./Core/Src/driver/st7789/st7789_font.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Core/Src/driver/st7789/%.o Core/Src/driver/st7789/%.su Core/Src/driver/st7789/%.
 clean: clean-Core-2f-Src-2f-driver-2f-st7789
 
 clean-Core-2f-Src-2f-driver-2f-st7789:
-	-$(RM) ./Core/Src/driver/st7789/st7789.cyclo ./Core/Src/driver/st7789/st7789.d ./Core/Src/driver/st7789/st7789.o ./Core/Src/driver/st7789/st7789.su
+	-$(RM) ./Core/Src/driver/st7789/st7789.cyclo ./Core/Src/driver/st7789/st7789.d ./Core/Src/driver/st7789/st7789.o ./Core/Src/driver/st7789/st7789.su ./Core/Src/driver/st7789/st7789_font.cyclo ./Core/Src/driver/st7789/st7789_font.d ./Core/Src/driver/st7789/st7789_font.o ./Core/Src/driver/st7789/st7789_font.su
 
 .PHONY: clean-Core-2f-Src-2f-driver-2f-st7789
 

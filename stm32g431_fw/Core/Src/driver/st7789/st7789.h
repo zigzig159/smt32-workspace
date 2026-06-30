@@ -11,6 +11,7 @@
 #include "main.h"
 #include <stdint.h>
 #include <string.h>
+#include "st7789_font.h"
 
 // ===== 사용자 환경에 맞게 수정 =====
 #define ST7789_SPI_HANDLE      hspi1
@@ -27,12 +28,12 @@
 
 // 해상도
 #define ST7789_WIDTH   320
-#define ST7789_HEIGHT  170
+#define ST7789_HEIGHT  240
 
 // (패널에 따라 오프셋이 있을 수 있음. 검은 테두리 보이면 조정)
 // 일반적인 240x240 모듈은 0,0
 #define ST7789_X_OFFSET  0
-#define ST7789_Y_OFFSET  35
+#define ST7789_Y_OFFSET  0
 
 // 색상(RGB565) 헬퍼
 #define RGB565(r,g,b)   (uint16_t)((((r)&0x1F)<<11) | (((g)&0x3F)<<5) | ((b)&0x1F))
@@ -56,7 +57,8 @@ void ST7789_DrawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t co
 void ST7789_FillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void ST7789_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t *data_rgb565);
 void ST7789_SetRotation(uint8_t rot); // 0~3
-
+char st7789_write_char(uint16_t x, uint16_t y, ST7789_FONT font, char ch, uint16_t color, uint16_t back_color);
+char st7789_write_string(uint16_t x, uint16_t y, ST7789_FONT font, char *str, uint16_t color, uint16_t back_color);
 
 
 

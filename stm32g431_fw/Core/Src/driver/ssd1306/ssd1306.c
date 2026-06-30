@@ -16,7 +16,7 @@
 /* SSD1306 Variable */
 static uint8_t ssd1306_buffer[SSD1306_BUFFER_SIZE];
 static SSD1306_CURSOR cursor;
-SSD1306_FONT current_font;
+//SSD1306_FONT current_font;
 
 
 /* I2C Write Function */

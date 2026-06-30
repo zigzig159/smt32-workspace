@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (14.3.rel1)
 ################################################################################
 
 ELF_SRCS := 
@@ -24,7 +24,6 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src/driver \
 Core/Src/driver/ili9341 \
-Core/Src/driver/ssd1306 \
 Core/Src/driver/st7789 \
 Core/Src \
 Core/Startup \

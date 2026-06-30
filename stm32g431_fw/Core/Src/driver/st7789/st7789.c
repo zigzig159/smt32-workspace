@@ -10,6 +10,10 @@
 
 
 #include "st7789.h"
+#include "st7789_font.h"
+#include <string.h>
+
+ST7789_FONT current_font;
 
 // --- 내부 유틸 ---
 static inline void CS_Select(void)   { HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_RESET); }
@@ -90,7 +94,7 @@ void ST7789_Init(void) {
     WriteData(&colmod, 1);
 
     // 인버트: 패널에 따라 다름. 보통 INVON(0x21)이 색감이 정상인 경우가 많음.
-    WriteCommand(0x21); // INVON
+    WriteCommand(0x20); // INVON
     HAL_Delay(10);
 
     // 노멀 디스플레이
@@ -170,4 +174,66 @@ void ST7789_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint
         pixels -= chunk;
         idx += chunk;
     }
+}
+
+char st7789_write_char(uint16_t x, uint16_t y, ST7789_FONT font, char ch, uint16_t color, uint16_t back_color)
+{
+    uint32_t b;
+
+    // Printable Characters : 32 - 126
+    if(ch < 32 || ch > 126)
+        return 0;
+
+    // Check remaining space on current line
+    if (ST7789_WIDTH < (x + font.width) ||  ST7789_HEIGHT < (y + font.height))
+    {
+        // Not enough space on current line
+   
+        return 0;
+    }
+
+    // Use the font to write
+    for(int i = 0; i < font.height; i++)
+    {
+        b = font.data[(ch - 32) * font.height + i];
+
+        for(int j = 0; j < font.width; j++)
+        {
+            if((b << j) & 0x8000)
+            {
+                ST7789_DrawPixel(x + j, y + i, color);
+            }
+            else
+            {
+                ST7789_DrawPixel(x + j, y + i, back_color);
+            }
+        }
+    }
+
+    // The current space is now taken
+    x += font.width;
+
+    // Return written char for validation
+    return ch;
+}
+
+char st7789_write_string(uint16_t x, uint16_t y, ST7789_FONT font, char *str, uint16_t color, uint16_t back_color)
+{
+    current_font = font;
+
+    // Write until null-byte
+    while(*str)
+    {
+        if(st7789_write_char(x, y, font, *str, color, back_color) != *str)
+        {
+            // Char could not be written
+            return *str;
+        }
+        x += font.width;
+        // Next char
+        str++;
+    }
+
+    // Everything ok
+    return *str;
 }
